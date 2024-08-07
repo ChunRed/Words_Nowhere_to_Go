@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Link from 'next/link';
 import "bootstrap/dist/css/bootstrap.css";
 import '../styles/global.css';
@@ -21,7 +22,7 @@ export default function Show() {
     const props = { v };
     //get scan value
 
-    console.log('/' + props.v[6] + props.v[7]);
+    //console.log('/' + props.v[6] + props.v[7]);
 
 
     //firebase
@@ -39,40 +40,44 @@ export default function Show() {
 
     const app = initializeApp(firebaseConfig);
 
+    let value = props.v;
+    
     function readOnceWithGet() {
         const dbRef = ref(getDatabase());
-        get(child(dbRef, '/' + props.v[6] + props.v[7])).then((snapshot) => {
-            if (snapshot.exists()) {
-                console.log(snapshot.val());
-                let data = snapshot.val();
+        if(value != undefined){
+            get(child(dbRef, '/' + props.v[6] + props.v[7])).then((snapshot) => {
+                if (snapshot.exists()) {
+                    console.log(snapshot.val());
+                    let data = snapshot.val();
 
-                // deal with firebase message
-                for (let i = 0; i < data.length; i++) {
-                    firebase_data += i + ". <br>";
-                    firebase_data += data[i];
-                    firebase_data += "<br><br>"
+                    // deal with firebase message
+                    for (let i = 0; i < data.length; i++) {
+                        firebase_data += i + ". <br>";
+                        firebase_data += data[i];
+                        firebase_data += "<br><br>"
+                    }
+
+                    const typed = new Typed(el.current, {
+                        strings: [firebase_data], // Strings to display
+                        // Speed settings, try diffrent values untill you get good results
+                        startDelay: 0,
+                        typeSpeed: 20,
+                        backSpeed: 0,
+                        backDelay: 0
+                    });
+
+                    // Destropying
+                    return () => {
+                        typed.destroy();
+                    };
+
+                } else {
+                    console.log("No data available");
                 }
-
-                const typed = new Typed(el.current, {
-                    strings: [firebase_data], // Strings to display
-                    // Speed settings, try diffrent values untill you get good results
-                    startDelay: 0,
-                    typeSpeed: 20,
-                    backSpeed: 0,
-                    backDelay: 0
-                });
-
-                // Destropying
-                return () => {
-                    typed.destroy();
-                };
-
-            } else {
-                console.log("No data available");
-            }
-        }).catch((error) => {
-            console.error(error);
-        });
+            }).catch((error) => {
+                console.error(error);
+            });
+        }
     }
 
     useEffect(readOnceWithGet, []);
