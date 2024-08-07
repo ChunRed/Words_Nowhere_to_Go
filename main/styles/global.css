@@ -2,3 +2,19 @@ html{
     background-color: black;
 }
 
+img {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+video {
+    width: 100% !important;
+
+}
+
+
+span {
+    color: #878787;
+    font-family: 'Grandiflora One', sans-serif;
+    letter-spacing: 1px;
+}

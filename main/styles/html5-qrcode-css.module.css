@@ -1,0 +1,159 @@
+/**
+ * html5-qrcode-css
+ * Github: https://github.com/Qiming-Liu/html5-qrcode-css
+ **/
+
+@import url('https://fonts.cdnfonts.com/css/grandiflora-one');
+
+#html5qr-code-full-region{
+    border: 0 !important;
+    border-color: #1989fa !important;
+}
+
+
+#reader {
+    border: 0 !important;
+}
+
+#logo {
+    font-family: 'Grandiflora One', sans-serif;
+    font-weight: 100;
+    font-size: 20px;
+    letter-spacing: 6px;
+}
+
+#output {
+    color: #fff;
+    font-family: 'Grandiflora One', sans-serif;
+    font-weight: 50;
+    letter-spacing: 10px;
+}
+
+#reader__dashboard_section_fsr span {
+    display: none !important;
+}
+
+#reader__scan_region {
+    margin-bottom: 100px;
+}
+
+#html5-qrcode-select-camera {
+    color: #878787;
+    background-color: #000000;
+    -webkit-tap-highlight-color: #000000 !important;
+    -webkit-tap-highlight-color: transparent !important;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    text-align: center;
+    border: 1px solid #323232;
+}
+
+#html5-qrcode-button-camera-permission{
+    background-color: #000000 !important;
+    color: aqua !important;
+}
+#html5-qrcode-element{
+    background-color: #000000 !important;
+    color: aqua !important;
+}
+#html5-qrcode-button-camera-stop{
+    background-color: #000000 !important;
+    color: aqua !important;
+}
+
+#reader__dashboard_section {
+    padding: 0 !important;
+}
+
+#html5-qrcode-anchor-scan-type-change {
+    color: white !important;
+}
+
+#reader__dashboard_section_swaplink {
+
+    text-decoration: none !important;
+    border-radius: 2px;
+    margin-top: 1rem;
+    color: #fff;
+    background-color: #000000;
+    border: 1px solid #000000;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 88%;
+    line-height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    -webkit-appearance: none;
+    -webkit-box-pack: center;
+}
+
+#reader__dashboard_section_csr button {
+
+
+
+    text-decoration: none !important;
+    border-radius: 1px;
+    margin-top: 1rem;
+    color: #fff;
+    background-color: #000000;
+    border: 0.5px solid #ffffff;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 88% !important;
+    /* line-height: 2.5rem; */
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    -webkit-appearance: none;
+    -webkit-box-pack: center;
+}
+
+#reader__dashboard_section_csr span {
+    margin-right: 0 !important;
+}
+
+#reader__dashboard_section_fsr input {
+    text-decoration: none !important;
+    border-radius: 2px;
+    margin-top: 1rem;
+    color: #fff;
+    background-color: #000000;
+    border: 1px solid #000000;
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 2.5rem;
+    width: 88% !important;
+    line-height: 2.5rem;
+    text-align: center;
+    cursor: pointer;
+    align-items: center;
+    -webkit-appearance: none;
+    -webkit-box-pack: center;
+}
+
+#reader__camera_selection {
+    background-color: #fff;
+    height: 2.5rem;
+    width: 88%;
+    line-height: 2.5rem;
+    border: 1px solid #1989fa;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+}
+
+#html5-qrcode-anchor-scan-type-change {
+    display: none !important;
+}
+
+#qr-shaded-region {
+    border-color: rgba(0, 0, 0, 0.8) !important;
+
+}

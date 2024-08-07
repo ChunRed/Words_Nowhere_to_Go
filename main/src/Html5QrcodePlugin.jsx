@@ -1,11 +1,12 @@
 import { Html5QrcodeScanner } from "html5-qrcode";
 import React from 'react';
+import "bootstrap/dist/css/bootstrap.css";
 
 const qrcodeRegionId = "html5qr-code-full-region";
 
 class Html5QrcodePlugin extends React.Component {
     render() {
-        return <div id={qrcodeRegionId} />;
+        return <div id={qrcodeRegionId}/>;
     }
 
     componentWillUnmount() {
@@ -23,9 +24,7 @@ class Html5QrcodePlugin extends React.Component {
             if (props.fps) {
             config.fps = props.fps;
             }
-            if (props.qrbox) {
-            config.qrbox = props.qrbox;
-            }
+            config.qrbox = { width: window.innerWidth-30, height: 160 };
             if (props.aspectRatio) {
             config.aspectRatio = props.aspectRatio;
             }
