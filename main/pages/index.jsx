@@ -17,8 +17,11 @@ export default function Home() {
           <h1 className='text-center text-light'>home</h1>
         </div>
         <div className="row mt-2">
-          <div className="col text-center">
+          {/* <div className="col text-center">
             <button onClick={ScannerWeb} className='btn btn-block btn-outline-light p-3 '>go to scanner web</button>
+          </div> */}
+          <div className="col text-center">
+            <button  className='btn btn-block btn-outline-light p-3 '><Link href={'/scan'}>go to scanner web</Link></button>
           </div>
         </div>
       </div>

@@ -1,15 +1,17 @@
 
 import React from 'react';
 import Html5QrcodePlugin from '../src/Html5QrcodePlugin.jsx'
-import ResultContainerPlugin from '../src/ResultContainerPlugin.jsx'
-import HowToUse from '../src/HowToUse.jsx'
+import Router from 'next/router';
+import Link from 'next/link.js';
+
 import '../styles/global.css';
 import '../styles/html5-qrcode-css.module.css'
 import "bootstrap/dist/css/bootstrap.css";
-import styles from '../styles/layout.module.css';
-
 
 class App extends React.Component {
+
+    
+
     constructor(props) {
         super(props);
         this.state = {
@@ -35,10 +37,6 @@ class App extends React.Component {
                     <div className="row">
                         <div id='value' className='mt-3 bg-black text-light text-center'>{}</div>
                     </div>
-
-                    <div className="row">
-                        <div className='text-light'>hellooooo</div>
-                    </div>
                 </section>
             </div>
         );
@@ -48,13 +46,23 @@ class App extends React.Component {
         console.log(
             "App [result]", decodedResult);
         this.setState((state, props) => {
-            
             state.decodedResults.push(decodedResult);
             return state;
         });
 
         const app = document.getElementById("value");
         app.innerHTML = decodedText;
+
+        let v = decodedText;
+        Router.push({
+            pathname: "/show",
+            query: {
+                v,
+            },
+        });
+
+        //Router.push('/show');
+
     }
 }
 
