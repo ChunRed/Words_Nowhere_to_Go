@@ -37,7 +37,7 @@ class App extends React.Component {
                     </div>
 
                     <div className="row">
-                        <div className='text-light'>hello</div>
+                        <div className='text-light'>hel</div>
                     </div>
                 </section>
             </div>
