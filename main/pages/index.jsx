@@ -7,7 +7,7 @@ import styles from '../styles/layout.module.css';
 export default function Home() {
 
   const ScannerWeb = (params) => {
-    window.open("https://chunred.github.io/BarcodeTest/client/");
+    window.location.href = "https://chunred.github.io/BarcodeTest/client/";
   }
 
   return (
@@ -18,7 +18,7 @@ export default function Home() {
         </div>
         <div className="row mt-2">
           <div className="col text-center">
-            <button className='btn btn-block btn-outline-light p-3 '><Link href="/scan">go to scanner web</Link></button>
+            <button onClick={ScannerWeb} className='btn btn-block btn-outline-light p-3 '>go to scanner web</button>
           </div>
         </div>
       </div>
