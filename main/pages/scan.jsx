@@ -35,6 +35,10 @@ class App extends React.Component {
                     <div className="row">
                         <div id='value' className='mt-3 bg-black text-light text-center'>{}</div>
                     </div>
+
+                    <div className="row">
+                        <div className='text-light'>hello</div>
+                    </div>
                 </section>
             </div>
         );
