@@ -5,7 +5,7 @@ import ResultContainerPlugin from '../src/ResultContainerPlugin.jsx'
 import HowToUse from '../src/HowToUse.jsx'
 import '../styles/global.css';
 import '../styles/html5-qrcode-css.module.css'
-//import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import styles from '../styles/layout.module.css';
 
 

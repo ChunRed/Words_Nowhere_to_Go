@@ -1,7 +1,6 @@
 import Head from 'next/head';
-//import styles from '../styles/Home.module.css';
 import Link from 'next/link';
-//import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.css";
 import '../styles/global.css';
 import styles from '../styles/layout.module.css';
 
