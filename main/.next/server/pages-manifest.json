@@ -1,9 +1,9 @@
 {
-  "/_error": "pages/_error.js",
   "/": "pages/index.js",
+  "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
+  "/test": "pages/test.js",
   "/scan": "pages/scan.js",
   "/show": "pages/show.js",
-  "/test": "pages/test.js",
-  "/_app": "pages/_app.js",
   "/_document": "pages/_document.js"
 }
