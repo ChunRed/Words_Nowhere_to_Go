@@ -5,25 +5,27 @@ import '../styles/global.css';
 import styles from '../styles/layout.module.css';
 import { useRouter } from "next/router";
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
+import { getDatabase, ref, child, get, set, push } from "firebase/database";
 import React, { useState, useEffect, useRef } from 'react'
 import Typed from "typed.js";
 
 
 export default function Show() {
     const el = useRef(null);
-    const [inputValues, setInputValues] = useState();
 
     //get scan value
     const router = useRouter();
     const {
-        query: { v },
+        query: { v = 'go to scan' },
     } = router
     const props = { v };
     //get scan value
 
     //read firebase data/////////////////////////////////////////////////////////
     let firebase_data = '';
+    let firebase_data_length = 0;
+    let typed;
+
     const firebaseConfig = {
         apiKey: "AIzaSyBCM30dzmjIothg9SmLV32i9BROyvZbXqk",
         authDomain: "words-nowhere-to-go.firebaseapp.com",
@@ -44,16 +46,20 @@ export default function Show() {
         if (value != undefined) {
             get(child(dbRef, '/' + props.v[6] + props.v[7])).then((snapshot) => {
                 if (snapshot.exists()) {
-                    console.log(snapshot.val());
+                    
                     let data = snapshot.val();
+                    firebase_data_length = data.length;
+                    console.log(data);
+                    console.log(firebase_data_length);
+                    console.log('/' + props.v[6] + props.v[7]+'/'+(firebase_data_length));
 
                     // deal with firebase message
                     for (let i = 0; i < data.length; i++) {
                         firebase_data += i + ". <br>";
-                        firebase_data += data[i];
+                        firebase_data += data[data.length-1-i];
                         firebase_data += "<br><br>"
                     }
-                    let firebase_new_data = ''
+                    let firebase_new_data = '';
                     for (let i = 0; i < firebase_data.length; i++) {
                         if (firebase_data[i] == '█') {
                             firebase_new_data += '<span style="color:rgb(30,30,255); background-color:rgb(30,30,255); border:1px solid rgb(30,30,255)">█</span>'
@@ -63,8 +69,9 @@ export default function Show() {
                         }
                     }
 
+                    
 
-                    const typed = new Typed(el.current, {
+                    typed = new Typed(el.current, {
                         strings: [firebase_new_data], // Strings to display
                         // Speed settings, try diffrent values untill you get good results
                         startDelay: 0,
@@ -80,6 +87,13 @@ export default function Show() {
 
                 } else {
                     console.log("No data available");
+                    typed = new Typed(el.current, {
+                        strings: ["no message"],
+                        startDelay: 0,
+                        typeSpeed: 2,
+                        backSpeed: 0,
+                        backDelay: 0
+                    });
                 }
             }).catch((error) => {
                 console.error(error);
@@ -91,10 +105,17 @@ export default function Show() {
     //read firebase data/////////////////////////////////////////////////////////
 
     //send data to firebase/////////////////////////////////////////////////////
-    function set_firebase_data(e){
+    function set_firebase_data(e) {
         const { value } = document.querySelector(e.target.getAttribute("data-input"));
-        alert(value);
-
+        typed.destroy();
+        firebase_data = '';
+        writeUserData(value);
+        readOnceWithGet();
+    }
+    function writeUserData(value) {
+        const db = getDatabase();
+        
+        set(ref(db, '/' + props.v[6] + props.v[7]+'/'+(firebase_data_length)), value);
     }
     //send data to firebase/////////////////////////////////////////////////////
 
@@ -114,9 +135,9 @@ export default function Show() {
                         <div className="card-header border-light h5 text-center">Write Message In This Barcode</div>
                         <div className="card-body">
                             <div className="input-group mt-2 ">
-                                <input id='input_value' type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2"/>
+                                <input id='input_value' type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-outline-light" data-input="#input_value" onClick={(e)=>set_firebase_data(e)} type="button">Button</button>
+                                    <button className="btn btn-outline-light" data-input="#input_value" onClick={(e) => set_firebase_data(e)} type="button">Button</button>
                                 </div>
                             </div>
                         </div>

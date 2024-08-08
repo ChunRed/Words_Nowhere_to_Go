@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get } from "firebase/database";
+import { getDatabase, ref, child, get, set } from "firebase/database";
 import React, { useState, useEffect } from 'react'
 
 export default function test() {
