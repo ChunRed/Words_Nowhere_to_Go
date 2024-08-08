@@ -12,6 +12,7 @@ import Typed from "typed.js";
 
 export default function Show() {
     const el = useRef(null);
+    const [inputValues, setInputValues] = useState();
 
     //get scan value
     const router = useRouter();
@@ -21,10 +22,7 @@ export default function Show() {
     const props = { v };
     //get scan value
 
-    //console.log('/' + props.v[6] + props.v[7]);
-
-
-    //firebase
+    //read firebase data/////////////////////////////////////////////////////////
     let firebase_data = '';
     const firebaseConfig = {
         apiKey: "AIzaSyBCM30dzmjIothg9SmLV32i9BROyvZbXqk",
@@ -90,8 +88,15 @@ export default function Show() {
     }
 
     useEffect(readOnceWithGet, []);
-    //firebase
+    //read firebase data/////////////////////////////////////////////////////////
 
+    //send data to firebase/////////////////////////////////////////////////////
+    function set_firebase_data(e){
+        const { value } = document.querySelector(e.target.getAttribute("data-input"));
+        alert(value);
+
+    }
+    //send data to firebase/////////////////////////////////////////////////////
 
 
 
@@ -109,9 +114,9 @@ export default function Show() {
                         <div className="card-header border-light h5 text-center">Write Message In This Barcode</div>
                         <div className="card-body">
                             <div className="input-group mt-2 ">
-                                <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2" />
+                                <input id='input_value' type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2"/>
                                 <div className="input-group-append">
-                                    <button className="btn btn-outline-light" type="button">Button</button>
+                                    <button className="btn btn-outline-light" data-input="#input_value" onClick={(e)=>set_firebase_data(e)} type="button">Button</button>
                                 </div>
                             </div>
                         </div>
@@ -122,19 +127,14 @@ export default function Show() {
 
                     <div className="text-light mt-3 card bg-black border-light scroll-width">
                         <div className="card-header border-light h4 text-center">Message In This Barcode</div>
-                        <div className="card-body overflow-auto scroll-height mt-2 mb-3">
-                            <p ref={el} className='m-1 card-text'></p>
+                        <div className="card-body overflow-auto scroll-height mt-1 mb-1">
+                            <p ref={el} className='card-text'></p>
                         </div>
                     </div>
                 </div>
 
 
-                <div className="row mt-5">
-                    {/* <div className='text-light text-center h5'> go back  </div> */}
-                    {/* <div className={styles.hrline}></div> */}
-                </div>
-
-                <div className="col text-center">
+                <div className="col text-center mt-5">
                     <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='p-3' href={'/scan'}>back to scan</Link></button>
                     <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='p-3' href={'/'}>back to home</Link></button>
                 </div>
