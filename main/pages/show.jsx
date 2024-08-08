@@ -69,8 +69,6 @@ export default function Show() {
                         }
                     }
 
-                    
-
                     typed = new Typed(el.current, {
                         strings: [firebase_new_data], // Strings to display
                         // Speed settings, try diffrent values untill you get good results
@@ -107,7 +105,6 @@ export default function Show() {
     //send data to firebase/////////////////////////////////////////////////////
     function set_firebase_data(e) {
         const { value } = document.querySelector(e.target.getAttribute("data-input"));
-        typed.destroy();
         firebase_data = '';
         writeUserData(value);
         readOnceWithGet();
