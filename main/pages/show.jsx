@@ -100,52 +100,54 @@ export default function Show() {
             <div className="container bg-black">
                 <div className="row mt-3">
                     <h1 className='text-center text-light'>Message In the Barcode</h1>
-                    <h1 className='text-center text-light'>{props.v}</h1>
+                    <h5 className='text-center text-light mt-5'>[ {props.v} ]</h5>
                 </div>
 
 
-                <div className="row mt-3">
-                    <div className='text-light text-center h5 '>save some message in this barcode</div>
-                    <div className={styles.hrline}></div>
+                <div className="row mt-5 justify-content-center align-items-center">
+                    <div className="card text-light bg-black border-light scroll-width">
+                        <div className="card-header border-light h5 text-center">Write Message In This Barcode</div>
+                        <div className="card-body">
+                            <div className="input-group mt-2 ">
+                                <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2" />
+                                <div className="input-group-append">
+                                    <button className="btn btn-outline-light" type="button">Button</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="row m-1">
-                    <div className="input-group mt-3">
-                        <input type="text" className="form-control" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="basic-addon2" />
-                        <div className="input-group-append">
-                            <button className="btn btn-outline-secondary" type="button">Button</button>
+                <div className="row mt-5 justify-content-center align-items-center" >
+
+                    <div className="text-light mt-3 card bg-black border-light scroll-width">
+                        <div className="card-header border-light h4 text-center">Message In This Barcode</div>
+                        <div className="card-body overflow-auto scroll-height mt-2 mb-3">
+                            <p ref={el} className='m-1 card-text'></p>
                         </div>
                     </div>
                 </div>
 
 
-
                 <div className="row mt-5">
-                    <div className='text-light text-center h5 '>massage in this barcode</div>
-                    <div className={styles.hrline}></div>
-                </div>
-
-                <div className="row text-light" >
-                    <div className="overflow-auto scroll-height mt-3">
-                        <p ref={el} className='m-3 text-light'>hhh</p>
-                    </div>
-                    <style jsx>{`
-                        .scroll-height{
-                            height: 400px;
-                        }
-                    `}</style>
-                </div>
-
-
-                <div className="row mt-5">
-                    <div className='text-light text-center h5'> go back  </div>
-                    <div className={styles.hrline}></div>
+                    {/* <div className='text-light text-center h5'> go back  </div> */}
+                    {/* <div className={styles.hrline}></div> */}
                 </div>
 
                 <div className="col text-center">
-                    <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='h4' href={'/scan'}>back to scan</Link></button>
-                    <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='h4' href={'/'}>back to home</Link></button>
+                    <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='p-3' href={'/scan'}>back to scan</Link></button>
+                    <button className='btn btn-block btn-outline-light p-2 m-3'><Link className='p-3' href={'/'}>back to home</Link></button>
                 </div>
+
+                <style jsx>{`
+                    .scroll-height{
+                        height: 200px;
+                    }
+                    .scroll-width{
+                        width: 22rem;
+                    }
+                    
+                `}</style>
 
             </div>
         </main>
