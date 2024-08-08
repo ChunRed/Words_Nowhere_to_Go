@@ -9,19 +9,20 @@ const qrcodeRegionId = "html5qr-code-full-region";
 // img_file.style.opacity = '0 !important';
 
 class Html5QrcodePlugin extends React.Component {
+
+
+    
     render() {
         return (
             <div >
+                <h1 className='text-center text-light m-3'>- Words Nowhere to Go -</h1>
                 <div id={qrcodeRegionId}></div>
+                
                 <style jsx>{`
                     #html5-qrcode-button-camera-stop{
                         background-color: rgb(255,0,0) !important;
                         color: rgb(255,0,0) !important;
                     }
-                    
-                    
-                    
-                    
                 `}</style>
 
                 <style jsx global>{`

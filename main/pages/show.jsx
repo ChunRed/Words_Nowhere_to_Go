@@ -90,7 +90,7 @@ export default function Show() {
                     typed = new Typed(el.current, {
                         strings: ["no message"],
                         startDelay: 0,
-                        typeSpeed: 2,
+                        typeSpeed: 10,
                         backSpeed: 0,
                         backDelay: 0
                     });
@@ -135,9 +135,9 @@ export default function Show() {
                         <div className="card-header border-light h5 text-center">Write Message In This Barcode</div>
                         <div className="card-body">
                             <div className="input-group mt-2 ">
-                                <input id='input_value' type="text" className="form-control" placeholder="Recipient's username" aria-label="Write Message In This Barcode" aria-describedby="basic-addon2" />
+                                <input id='input_value' type="text" className="form-control" placeholder="your message..." aria-label="Write Message In This Barcode" aria-describedby="basic-addon2" />
                                 <div className="input-group-append">
-                                    <button className="btn btn-outline-light" data-input="#input_value" onClick={(e) => set_firebase_data(e)} type="button">Button</button>
+                                    <button className="btn btn-outline-light" data-input="#input_value" onClick={(e) => set_firebase_data(e)} type="button">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -147,7 +147,7 @@ export default function Show() {
                 <div className="row mt-5 justify-content-center align-items-center" >
 
                     <div className="text-light mt-3 card bg-black border-light scroll-width">
-                        <div className="card-header border-light h4 text-center">Message In This Barcode</div>
+                        <div className="card-header border-light h4 text-center">History Messages</div>
                         <div className="card-body overflow-auto scroll-height mt-1 mb-1">
                             <p ref={el} className='card-text'></p>
                         </div>
