@@ -46,17 +46,17 @@ export default function Show() {
         if (value != undefined) {
             get(child(dbRef, '/' + props.v[6] + props.v[7])).then((snapshot) => {
                 if (snapshot.exists()) {
-                    
+
                     let data = snapshot.val();
                     firebase_data_length = data.length;
                     console.log(data);
                     console.log(firebase_data_length);
-                    console.log('/' + props.v[6] + props.v[7]+'/'+(firebase_data_length));
+                    console.log('/' + props.v[6] + props.v[7] + '/' + (firebase_data_length));
 
                     // deal with firebase message
                     for (let i = 0; i < data.length; i++) {
                         firebase_data += i + ". <br>";
-                        firebase_data += data[data.length-1-i];
+                        firebase_data += data[data.length - 1 - i];
                         firebase_data += "<br><br>"
                     }
                     let firebase_new_data = '';
@@ -78,10 +78,10 @@ export default function Show() {
                         backDelay: 0
                     });
 
-                    // Destropying
-                    return () => {
-                        typed.destroy();
-                    };
+                    // // Destropying
+                    // return () => {
+                    //     typed.destroy();
+                    // };
 
                 } else {
                     console.log("No data available");
@@ -107,12 +107,13 @@ export default function Show() {
         const { value } = document.querySelector(e.target.getAttribute("data-input"));
         firebase_data = '';
         writeUserData(value);
+        // typed.destroy();
         readOnceWithGet();
     }
     function writeUserData(value) {
         const db = getDatabase();
-        
-        set(ref(db, '/' + props.v[6] + props.v[7]+'/'+(firebase_data_length)), value);
+
+        set(ref(db, '/' + props.v[6] + props.v[7] + '/' + (firebase_data_length)), value);
     }
     //send data to firebase/////////////////////////////////////////////////////
 
