@@ -40,7 +40,7 @@ export default function Home() {
         </div>
 
         <header>
-          <video className='fullscreen-video' src={require('../media/01.mp4')} autoPlay muted loop />
+          <video className='fullscreen-video' src={require('../media/01.mp4')} autoPlay muted loop playsInline />
           <div className="header-content">
             <div className="header-content-inner">
               <div className="row test w-100">
