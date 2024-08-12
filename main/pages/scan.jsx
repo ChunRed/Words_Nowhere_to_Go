@@ -53,8 +53,8 @@ class App extends React.Component {
                         position: absolute;
                         width:100vw;
                         top: 50vh;
-                        background-color: rgb(30, 30, 255);
-                        color: rgb(0,0,0);
+                        background-color: rgba(30, 30, 255, 0);
+                        color: rgb(255,255,255);
                         text-align: center;
                     }
                     
@@ -113,31 +113,43 @@ class App extends React.Component {
                     console.log(data);
 
                     // deal with firebase message
-                    firebase_data = data[0];
+                    firebase_data = data[data.length - 1];
 
                     const app = document.getElementById("scan_value");
                     let typed = new Typed(app, {
                         strings: [firebase_data],
                         startDelay: 0,
-                        typeSpeed: 100,
+                        typeSpeed: 10,
                         backSpeed: 0,
                         backDelay: 0,
                         showCursor: false,
                         onComplete: (self) => {
                             self.destroy();
                             app.innerHTML = firebase_data;
-                            setTimeout(() => {
+
+                            let br = document.createElement("br");
+                            let button = document.createElement("BUTTON");
+                            let t = document.createTextNode("preserve some words");
+                            
+                            button.appendChild(t);
+                            app.appendChild(br);
+                            app.appendChild(button);
+
+                            button.style.position = 'absolut';
+                            button.style.fontSize = '13px';
+                            button.style.backgroundColor = 'rgb(255,0,0)';
+                            button.onclick = () => {
                                 Router.push({
                                     pathname: "/show",
                                     query: {
                                         v,
                                     },
                                 });
-                            }, 5000);
+                            }
                         },
                     });
                     app.style.padding = "10px";
-                    
+
 
 
                 } else {
@@ -152,19 +164,30 @@ class App extends React.Component {
                         showCursor: false,
                         onComplete: (self) => {
                             self.destroy();
-                            app.innerHTML = '';
-                            setTimeout(() => {
+                            app.innerHTML = 'no message';
+
+                            let br = document.createElement("br");
+                            let button = document.createElement("BUTTON");
+                            let t = document.createTextNode("preserve some words");
+                            
+                            button.appendChild(t);
+                            app.appendChild(br);
+                            app.appendChild(button);
+
+                            button.style.position = 'absolut';
+                            button.style.fontSize = '13px';
+                            button.onclick = () => {
                                 Router.push({
                                     pathname: "/show",
                                     query: {
                                         v,
                                     },
                                 });
-                            }, 5000);
+                            }
                         },
                     });
                     app.style.padding = "10px";
-                    
+
                 }
             }).catch((error) => {
                 console.error(error);

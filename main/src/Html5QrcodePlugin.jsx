@@ -27,7 +27,7 @@ class Html5QrcodePlugin extends React.Component {
 
                 <style jsx global>{`
                     button{
-                        background-color: rgb(0,0,0) !important;
+                        background-color: rgba(0, 0, 0, 0.5) !important;
                         color: rgb(255,255,255) !important;
                         border: 1px solid rgb(150, 150, 150);
                         padding: 10px;
