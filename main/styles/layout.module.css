@@ -1,9 +1,10 @@
-.bg-black{
+.bg-black {
     background-color: black !important;
 }
 
 .hrline {
     border-top: solid;
-    border-width:medium;
+    border-width: medium;
     color: white;
 }
+

@@ -1,4 +1,4 @@
-html{
+html {
     background-color: black;
 }
 
@@ -17,4 +17,42 @@ span {
     color: #878787;
     font-family: 'Grandiflora One', sans-serif;
     letter-spacing: 1px;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 475px;
+    color: #fff;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+header .fullscreen-video {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    -ms-transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0.5;
+    /* z-index: -100; */
+}
+
+@media (min-width: 768px) {
+    header {
+        height: 665px;
+    }
+}
+
+.test {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
 }

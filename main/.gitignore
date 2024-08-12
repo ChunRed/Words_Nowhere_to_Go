@@ -28,3 +28,24 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+
+# next-video
+../media/01.mp4/*
+!../media/01.mp4/*.json
+!../media/01.mp4/*.js
+!../media/01.mp4/*.ts
+public/_next-video
+
+# next-video
+main/media/*
+!main/media/*.json
+!main/media/*.js
+!main/media/*.ts
+public/_next-video
+
+# next-video
+media/*
+!media/*.json
+!media/*.js
+!media/*.ts
+public/_next-video
