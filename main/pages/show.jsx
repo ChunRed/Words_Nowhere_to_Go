@@ -129,7 +129,7 @@ export default function Show() {
 
 
                 <div className="row mt-5 justify-content-center align-items-center">
-                    <div className="card text-light bg-black border-light scroll-width">
+                    <div className="card text-light bg-black border-light scroll-width w-75">
                         <div className="card-header border-light h5 text-center">Write Message In This Barcode</div>
                         <div className="card-body">
                             <div className="input-group mt-2 ">
@@ -143,8 +143,8 @@ export default function Show() {
                 </div>
 
                 <div className="row mt-5 justify-content-center align-items-center" >
-
-                    <div className="text-light mt-3 card bg-black border-light scroll-width">
+                    
+                    <div className="text-light mt-3 card bg-black border-light scroll-width w-75">
                         <div className="card-header border-light h4 text-center">History Messages</div>
                         <div className="card-body overflow-auto scroll-height mt-1 mb-1">
                             <p ref={el} className='card-text'></p>
@@ -160,7 +160,7 @@ export default function Show() {
 
                 <style jsx>{`
                     .scroll-height{
-                        height: 200px;
+                        height: 25vh;
                     }
                     .scroll-width{
                         width: 22rem;

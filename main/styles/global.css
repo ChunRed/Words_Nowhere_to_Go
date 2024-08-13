@@ -2,6 +2,10 @@ html {
     background-color: black;
 }
 
+body{
+    background-color: black;
+}
+
 img {
     display: none !important;
     opacity: 0 !important;

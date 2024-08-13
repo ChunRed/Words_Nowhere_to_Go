@@ -31,11 +31,12 @@ export default function Home() {
 
     <main>
       <div className="container bg-black">
-        <div className="row mt-5">
-          <h1 className='text-center text-light'>- Words Nowhere to Go -</h1>
+        <div className="row">
+          {/* <h1 className='text-center text-light'>- Words Nowhere to Go -</h1> */}
+          <video className='fullscreen-video' src={require('../media/03.mp4')} autoPlay muted loop playsInline />
         </div>
 
-        <div className="row mt-3">
+        <div className="row">
           <div className={styles.hrline}></div>
         </div>
 
@@ -51,7 +52,7 @@ export default function Home() {
           </div>
         </header>
 
-        <div className="row mt-5">
+        <div className="row mt-2">
 
           <div className="col text-center">
             <button className='btn btn-block btn-outline-light p-2 w-100'><Link className='h4' href={'/scan'}>Start To Scan</Link></button>

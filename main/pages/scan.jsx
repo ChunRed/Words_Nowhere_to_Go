@@ -7,10 +7,10 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, child, get, set, push } from "firebase/database";
 import Typed from "typed.js";
 
+
 import '../styles/global.css';
 import '../styles/html5-qrcode-css.module.css';
 import "bootstrap/dist/css/bootstrap.css";
-
 
 class App extends React.Component {
 
@@ -30,9 +30,11 @@ class App extends React.Component {
                 <section className="App-section container bg-black">
                     <div className="row bg-black border border-dark">
                         <Html5QrcodePlugin
+                            id="scan_view"
                             className="border border-dark"
                             fps={10}
                             disableFlip={false}
+                            //aspectRatio={custom_aspectRatio}
                             qrCodeSuccessCallback={this.onNewScanResult} />
                     </div>
 
