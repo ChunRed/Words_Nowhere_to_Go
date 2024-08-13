@@ -43,7 +43,7 @@ class App extends React.Component {
                     </div>
                 </section>
 
-                <p id="scan_value" className="h2 overflow-auto "></p>
+                <p id="scan_value" className=" overflow-auto text-left"></p>
 
                 <style jsx>{`
                     #html5-qrcode-button-camera-stop{
@@ -55,7 +55,7 @@ class App extends React.Component {
                         position: absolute;
                         width:100vw;
                         top: 50vh;
-                        background-color: rgba(30, 30, 255, 0);
+                        background-color: rgba(0, 0, 0, 0.5);
                         color: rgb(255,255,255);
                         text-align: center;
                     }
@@ -117,9 +117,19 @@ class App extends React.Component {
                     // deal with firebase message
                     firebase_data = data[data.length - 1];
 
+                    let firebase_new_data = '';
+                    for (let i = 0; i < firebase_data.length; i++) {
+                        if (firebase_data[i] == '█') {
+                            firebase_new_data += '<span style="color:rgb(30,30,255); background-color:rgb(30,30,255);">█</span>'
+                        }
+                        else {
+                            firebase_new_data += firebase_data[i];
+                        }
+                    }
+
                     const app = document.getElementById("scan_value");
                     let typed = new Typed(app, {
-                        strings: [firebase_data],
+                        strings: [firebase_new_data],
                         startDelay: 0,
                         typeSpeed: 10,
                         backSpeed: 0,
@@ -127,7 +137,7 @@ class App extends React.Component {
                         showCursor: false,
                         onComplete: (self) => {
                             self.destroy();
-                            app.innerHTML = firebase_data;
+                            app.innerHTML = firebase_new_data;
 
                             let br = document.createElement("br");
                             let button = document.createElement("BUTTON");
