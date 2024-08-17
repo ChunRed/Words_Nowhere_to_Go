@@ -16,7 +16,7 @@ export default function Home() {
 
   function show() {
     let typed1 = new Typed(t1.current, {
-      strings: ['In today\'s world, the rapid and convenient flow of information has become a defining feature of our lives. However, conversations between people are now often subject to the presence of a third party—monitoring, censorship, and the monopolization and manipulation by technological capital and power. <br><br> The work " Words Nowhere to Go " seeks to create a sanctuary amid this turbulent era, where voices and thoughts can find refuge.<br><br>In the digital age, let us preserve memories, emotions, and words that were once silenced, weaving them into the fabric of everyday life through the use of “Barcodes.”'],
+      strings: ['In today\'s world, the rapid flow of information defines our lives. Yet, exchanges between people are often monitored, censored, and manipulated by technological powers, leaving individuals unable to acknowledge their gender, country, or speak freely.<br><br>The work "Words Nowhere to Go" aims to create a sanctuary in this turbulent era, where voices and thoughts can find refuge.<br><br>In the digital age, let us preserve the once-silenced memories, emotions, and words, weaving them into everyday life through "Barcodes."'],
       startDelay: 3000,
       typeSpeed: 2,
       backSpeed: 0,
