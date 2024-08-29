@@ -8,10 +8,6 @@ import React, { useState, useEffect, useRef } from 'react'
 
 export default function Home() {
 
-  const ScannerWeb = (params) => {
-    window.location.href = "https://chunred.github.io/BarcodeTest/client/";
-  }
-
   const t1 = useRef(null);
 
   function show() {
@@ -53,11 +49,17 @@ export default function Home() {
         </header>
 
         <div className="row mt-2">
-
           <div className="col text-center">
             <button className='btn btn-block btn-outline-light p-2 w-100'><Link className='h4' href={'/scan'}>Start To Scan</Link></button>
           </div>
         </div>
+
+        <div className="row mt-3">
+          <div className="col text-center">
+            <button className='btn btn-block btn-outline-light p-2 w-100'><Link className='h4' href={'/about'}>About</Link></button>
+          </div>
+        </div>
+
       </div>
     </main>
   );
